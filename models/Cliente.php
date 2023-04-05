@@ -32,8 +32,9 @@ class Cliente extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nome', 'cpf', 'email', 'endereco'], 'required'],
+            [['nome', 'cpf', 'email', 'endereco'], 'required','message'=>'O campo não pode ficar em branco.'],
             [['endereco'], 'string'],
+            [['cpf'], 'string','max' =>  11],
             [['nome', 'cpf', 'email', 'telefone'], 'string', 'max' => 255],
         ];
     }
